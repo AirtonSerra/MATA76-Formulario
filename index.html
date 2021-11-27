@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+    <title>Cadastro MATA-76</title>
+  </head>
+
+  <body>
+    <main>
+      <header>
+        <h1>Cadastro:</h1>
+        <h2>
+          Preencha os dados abaixo para que seu cadastro seja realizado com
+          sucesso!
+        </h2>
+      </header>
+      <form method="POST" action="#">
+        <section class="informacoesPrincipais">
+          <input id="nome" type="text" placeholder="Insira seu nome completo" />
+          <input id="telefone" type="tel" placeholder="Insira seu telefone (DDD) XXXXX-XXXX" />
+          <input id="celular" type="tel" placeholder="Insira seu celular" />
+          <input
+            id="password"
+            type="password"
+            placeholder="Digite sua senha"
+            maxlength="20"
+          />
+        </section>
+
+        <section class="sexo">
+          <input id="sexoM" type="radio" name="sexo" />
+          <label for="sexoM">Masculino</label>
+          <input id="sexoF" type="radio" name="sexo" />
+          <label for="sexoF">Feminino</label>
+          <input id="sexoO" type="radio" name="sexo" />
+          <label for="sexoO">Outro</label>
+        </section>
+
+        <section class="curso">
+          <label for="curso">Escolha seu curso</label>
+          <select name="curso" id="curso">
+            <option value="ci">Bacharelado Interdisciplinar</option>
+            <option value="cc">Ciência da Computação</option>
+            <option value="lc">Licenciatura em Computação</option>
+            <option value="outro">Outro</option>
+          </select>
+        </section>
+        <div class="actions">
+          <button type="reset">Limpar</button>
+          <button type="submit">Enviar</button>
+        </div>
+      </form>
+    </main>
+    <footer>
+      <p>Criado pelo grupo 4 - MATA-76</p>
+    </footer>
+  </body>
+</html>

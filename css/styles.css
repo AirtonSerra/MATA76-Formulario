@@ -1,0 +1,88 @@
+body {
+    font-family: "Lato", sans-serif;
+    /*Passa por Herança para as outras tags*/
+    background: rgb(238, 174, 202);
+    background: radial-gradient(circle, rgb(54 72 137) 0%, rgb(20 20 20) 100%);
+}
+
+  
+  main {
+    background: #f0f0f0;
+    border-radius: 10px;
+    padding: 30px;
+    margin: 25px auto;
+    max-width: 320px;
+  }
+  
+  section {
+    margin-top: 10px;
+  }
+  
+  input {
+    margin-bottom: 10px;
+  }
+  
+  section.informacoesPrincipais input {
+    display: block;
+    padding: 5px;
+    border: 1px solid silver;
+    border-radius: 5px;
+    font-size: 16px;
+    line-height: 20px;
+    width: 95%;
+    border: 1px solid yellowgreen;
+  }
+  
+  select#curso {
+    border: 1px solid yellowgreen;
+    padding: 5px 37% 5px 2px;
+    border-radius: 5px;
+    margin-top: 10px;
+  }
+  
+  button {
+    background: yellowgreen;
+    color: black;
+    border: 1px solid yellowgreen;
+    border-radius: 5px;
+    font-size: 1em;
+    line-height: 20px;
+    cursor: pointer;
+  }
+  
+  button[type=reset] {
+    background: gray;
+    border: 1px solid gray;
+  }
+  
+  .actions {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 0px;
+  }
+  
+  button:hover {
+    background-color: rgb(238, 174, 202);
+    border: 1px solid rgb(148, 187, 233);
+  }
+  
+  footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  footer p {
+    animation: 3s ease mymove;
+  }
+  
+  @keyframes mymove {
+    from {
+      margin-left: 70%;
+    }
+  
+    to {
+      margin-left: 0%;
+    }
+  }
+  
