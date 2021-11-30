@@ -3,12 +3,13 @@
   <head>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Lato&display=swap"
-      rel="stylesheet"
+    <link 
+        href="https://fonts.googleapis.com/css2?family=Lato&display=swap"
+        rel="stylesheet"
     />
     <link rel="stylesheet" href="css/styles.css" />
     <title>Cadastro MATA-76</title>
+    <script type="text/javascript" src="index.js"></script>
   </head>
 
   <body>
@@ -20,25 +21,29 @@
           sucesso!
         </h2>
       </header>
-      <form method="POST" action="#">
+      <form id="cadastro">
         <section class="informacoesPrincipais">
-          <input id="nome" type="text" placeholder="Insira seu nome completo" />
-          <input id="telefone" type="tel" placeholder="Insira seu telefone (DDD) XXXXX-XXXX" />
-          <input id="celular" type="tel" placeholder="Insira seu celular" />
-          <input
-            id="password"
-            type="password"
-            placeholder="Digite sua senha"
-            maxlength="20"
-          />
+          <label for="nome">Nome completo</label>
+          <input id="nome" type="text" placeholder="Digite seu nome completo" />
+
+          <label for="celular">Celular</label>
+          <input id="celular" type="tel" placeholder="(XX)XXXXX-XXXX" onkeydown="maskphone(event)" maxlength="14" />
+
+          <label for="password">Crie uma senha</label>
+          <input id="password" type="password" placeholder="Digite sua senha" onkeyup="matchpasswords()" maxlength="20" />
+
+          <label for="passwordconfirm">Confirme sua senha</label>
+          <input id="passwordconfirm" type="password" placeholder="Digite novamente sua senha" onkeyup="matchpasswords()" maxlength="20" />
+          <p id="passworderror" style="color: red; font-size: small; display: none;">As senhas não são iguais</p>
         </section>
 
-        <section class="sexo">
-          <input id="sexoM" type="radio" name="sexo" />
+        <label for="sexo">Sexo</label>
+        <section id="sexo" class="sexo">
+          <input id="sexoM" type="radio" name="sexo" value="m" />
           <label for="sexoM">Masculino</label>
-          <input id="sexoF" type="radio" name="sexo" />
+          <input id="sexoF" type="radio" name="sexo" value="f" />
           <label for="sexoF">Feminino</label>
-          <input id="sexoO" type="radio" name="sexo" />
+          <input id="sexoO" type="radio" name="sexo" value="outro" />
           <label for="sexoO">Outro</label>
         </section>
 
@@ -51,9 +56,10 @@
             <option value="outro">Outro</option>
           </select>
         </section>
+
         <div class="actions">
           <button type="reset">Limpar</button>
-          <button type="submit">Enviar</button>
+          <button type="submit" onclick="validatedata(event)">Enviar</button>
         </div>
       </form>
     </main>
