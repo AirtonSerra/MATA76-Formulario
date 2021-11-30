@@ -1,10 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -12,48 +8,33 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="css/styles.css" />
-    <script rel="script" src="javascript.js"></script>
     <title>Cadastro MATA-76</title>
   </head>
 
-  <body class="container">
+  <body>
     <main>
       <header>
         <h1>Cadastro:</h1>
-        <h4 class="">
+        <h2>
           Preencha os dados abaixo para que seu cadastro seja realizado com
           sucesso!
-        </h4>
-        <br>
+        </h2>
       </header>
       <form method="POST" action="#">
         <section class="informacoesPrincipais">
-          <input id="nome" type="text" placeholder="Insira seu nome completo" onfocusout="ValidaNome(this)"/>
-          <div id="valnome" class="invalid-feedback" style="display:none;">O campo Nome precisa ser preenchido!</div>
-          <input id="telefone" type="tel" placeholder="Insira seu telefone (DDD) XXXXX-XXXX" onfocusout="ValidaTel(this)" />
-          <div id="valtelefone" class="invalid-feedback" style="display:none;">O campo Telefone precisa ser preenchido ou é inválido!</div>
-          <input id="celular" type="tel" placeholder="Insira seu celular" onfocusout="ValidaCel(this)" />
-          <div id="valcelular" class="invalid-feedback" style="display:none;">O campo Celular precisa ser preenchido ou é inválido!</div>
+          <input id="nome" type="text" placeholder="Insira seu nome completo" />
+          <input id="telefone" type="tel" placeholder="Insira seu telefone (DDD) XXXXX-XXXX" />
+          <input id="celular" type="tel" placeholder="Insira seu celular" />
           <input
             id="password"
             type="password"
             placeholder="Digite sua senha"
             maxlength="20"
-            onfocusout="ValidaSenha(this)"
           />
-          <div id="valsenha" class="invalid-feedback" style="display:none;">O campo Senha precisa ser preenchido!</div>
-          <input
-          id="confirmpassword"
-          type="password"
-          placeholder="Confirme a senha"
-          maxlength="20"
-          onfocusout="ValidaConfirmacaoSenha(this)"
-          />
-          <div id="valconfirmacaosenha" class="invalid-feedback" style="display:none;">As senhas são diferentes!</div>
         </section>
 
         <section class="sexo">
-          <input id="sexoM" type="radio" name="sexo"/>
+          <input id="sexoM" type="radio" name="sexo" />
           <label for="sexoM">Masculino</label>
           <input id="sexoF" type="radio" name="sexo" />
           <label for="sexoF">Feminino</label>
@@ -62,9 +43,8 @@
         </section>
 
         <section class="curso">
-          <label for="curso">Escolha seu curso:</label>
-          <select name="curso" id="curso" style="width: 100%;">
-            <option value="null"></option>
+          <label for="curso">Escolha seu curso</label>
+          <select name="curso" id="curso">
             <option value="ci">Bacharelado Interdisciplinar</option>
             <option value="cc">Ciência da Computação</option>
             <option value="lc">Licenciatura em Computação</option>
@@ -72,13 +52,13 @@
           </select>
         </section>
         <div class="actions">
-          <button type="reset" onclick="ResetaCampos()">Limpar</button>
-          <button type="submit" onclick="Enviar()">Enviar</button>
+          <button type="reset">Limpar</button>
+          <button type="submit">Enviar</button>
         </div>
       </form>
     </main>
     <footer>
-      <p style="color: whitesmoke;">Criado pelo grupo 4 - MATA-76</p>
+      <p>Criado pelo grupo 4 - MATA-76</p>
     </footer>
   </body>
 </html>
