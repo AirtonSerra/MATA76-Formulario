@@ -16,55 +16,65 @@
     <main>
       <header>
         <h1>Cadastro:</h1>
-        <h2>
+        <h4>
           Preencha os dados abaixo para que seu cadastro seja realizado com
           sucesso!
-        </h2>
+        </h4>
       </header>
       <form id="cadastro">
         <section class="informacoesPrincipais">
           <label for="nome">Nome completo</label>
-          <input id="nome" type="text" placeholder="Digite seu nome completo" />
+          <input id="nome" type="text" placeholder="Digite seu nome completo" onfocusout="validatename()"/>
+          <p id="nomevalidate" style="color: red; font-size: small; font-weight: bold; display: none;">É preciso inserir um nome</p>
 
           <label for="celular">Celular</label>
-          <input id="celular" type="tel" placeholder="(XX)XXXXX-XXXX" onkeydown="maskphone(event)" maxlength="14" />
+          <input id="celular" type="tel" placeholder="(XX)XXXXX-XXXX" onfocusout="maskphone(event)" maxlength="15" />
+          <p id="celularvalidate" style="color: red; font-size: small; font-weight: bold; display: none;"></p>
 
           <label for="password">Crie uma senha</label>
-          <input id="password" type="password" placeholder="Digite sua senha" onkeyup="matchpasswords()" maxlength="20" />
+          <input id="password" type="password" placeholder="Digite sua senha" onfocusout="validatepassword()" maxlength="20" />
+          <p id="senhavalidate" style="color: red; font-size: small; font-weight: bold; display: none;"></p>
 
           <label for="passwordconfirm">Confirme sua senha</label>
-          <input id="passwordconfirm" type="password" placeholder="Digite novamente sua senha" onkeyup="matchpasswords()" maxlength="20" />
-          <p id="passworderror" style="color: red; font-size: small; display: none;">As senhas não são iguais</p>
+          <input id="passwordconfirm" type="password" placeholder="Digite novamente sua senha" onfocusout="matchpasswords()" maxlength="20" />
+          <p id="passworderror" style="color: red; font-size: small; font-weight: bold; display: none;">As senhas não são iguais</p>
         </section>
 
-        <label for="sexo">Sexo</label>
-        <section id="sexo" class="sexo">
-          <input id="sexoM" type="radio" name="sexo" value="m" />
-          <label for="sexoM">Masculino</label>
-          <input id="sexoF" type="radio" name="sexo" value="f" />
-          <label for="sexoF">Feminino</label>
-          <input id="sexoO" type="radio" name="sexo" value="outro" />
-          <label for="sexoO">Outro</label>
+        <div style="display: grid;">
+          <label for="sexo">Sexo</label>
+          <section id="sexo" class="sexo" onfocusout="validatesex()">
+            <input id="sexoM" type="radio" name="sexo" value="m" />
+            <label for="sexoM">Masculino</label>
+            <input id="sexoF" type="radio" name="sexo" value="f" />
+            <label for="sexoF">Feminino</label>
+            <input id="sexoO" type="radio" name="sexo" value="outro" />
+            <label for="sexoO">Outro</label>
         </section>
+        <p id="sexvalidate" style="color: red; font-size: small; font-weight: bold; display: none;">É preciso escolher um sexo</p>
+      </div>
 
-        <section class="curso">
+      <div style="display: grid;">
+        <section class="curso" onfocusout="validatecourse()">
           <label for="curso">Escolha seu curso</label>
           <select name="curso" id="curso">
+            <option value="null"></option>
             <option value="ci">Bacharelado Interdisciplinar</option>
             <option value="cc">Ciência da Computação</option>
             <option value="lc">Licenciatura em Computação</option>
             <option value="outro">Outro</option>
           </select>
+          <p id="coursevalidate" style="color: red; font-size: small; font-weight: bold; display: none;">É preciso escolher um curso</p>
         </section>
+        </div>
 
         <div class="actions">
-          <button type="reset">Limpar</button>
+          <button type="reset" onclick="cleanallfields()">Limpar</button>
           <button type="submit" onclick="validatedata(event)">Enviar</button>
         </div>
       </form>
     </main>
     <footer>
-      <p>Criado pelo grupo 4 - MATA-76</p>
+      <p style="color: whitesmoke;">Criado pelo grupo 4 - MATA-76</p>
     </footer>
   </body>
 </html>

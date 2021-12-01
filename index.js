@@ -44,42 +44,27 @@ function maskphone(event) {
             }
         }
     }
-}
 
-function matchpasswords(){
-    let password = document.getElementById("password").value;
-    let passwordconfirm = document.getElementById("passwordconfirm").value;
-    let passworderror = document.getElementById("passworderror");
-    
-    if(password != ""){
-        if(passwordconfirm == ""){
-            passworderror.style.display = "none";
-        }else{
-            if(password.localeCompare(passwordconfirm) == 0){
-                passworderror.style.display = "none";
-            }else{
-                passworderror.style.display = "block";
-            }
-        }
-    }
-}
 
-function validatename() {
-    nome = document.getElementById("nome").value;
-    if(nome == ""){
-        alert("Digite seu nome completo");
-        return false;
-    }
-    return true;
+    validatephone();
 }
 
 function validatephone() {
-    celular = document.getElementById("celular").value;
+    var celular = document.getElementById("celular").value;
+    var celularvalidate = document.getElementById("celularvalidate");
+
+    if(celular.trim() == ""){
+        celularvalidate.innerText = "É preciso inserir um número de celular";
+        celularvalidate.style.display = "block";
+        return false;
+    }
+
     celular = celular.replace("(", "");
     celular = celular.replace(")", "");
     celular = celular.replace("-", "");
     if(celular == ""){
-        alert("Insira seu número de celular");
+        celularvalidate.innerText = "É preciso inserir um número de celular";
+        celularvalidate.style.display = "block";
         return false;
     }
     let validddd = false;
@@ -87,36 +72,61 @@ function validatephone() {
         if(celular[1] == ddds[celular[0] - 1][i]) validddd = true;
     }
     if(!validddd){
-        alert("Insira um ddd válido");
+        celularvalidate.innerText = "Insira um DDD válido";
+        celularvalidate.style.display = "block";
         return false;
     }
+    celularvalidate.style.display = "none";
     return true;
 }
 
 function validatepassword(){
-    password = document.getElementById("password").value;
-    passwordconfirm = document.getElementById("passwordconfirm").value;
-    if(password == ""){
-        alert("É preciso criar uma senha");
-        return false;
-    }
-    if(passwordconfirm == ""){
-        alert("É preciso confirmar sua senha");
+    var password = document.getElementById("password").value;
+    var passwordvalidate = document.getElementById("senhavalidate");
+
+    if(password.trim() == ""){
+        passwordvalidate.innerHTML = "É preciso inserir uma senha";
+        passwordvalidate.style.display = "block";
         return false;
     }
     if(password.length < 8){
-        alert("A senha precisa ter no mínimo 8 caracteres");
+        passwordvalidate.innerHTML = "A senha precisa ter no mínimo 8 caracteres";
+        passwordvalidate.style.display = "block";
         return false;
     }
-    if(password.localeCompare(passwordconfirm) != 0){
-        alert("As senhas informadas não são iguais");
-        return false;
-    }
+    passwordvalidate.style.display = "none";
     return true;
 }
 
+function matchpasswords(){
+
+    if(!validatepassword()){
+        return false;
+    }
+
+    let password = document.getElementById("password").value;
+    let passwordconfirm = document.getElementById("passwordconfirm").value;
+    let passworderror = document.getElementById("passworderror");
+    
+    if(passwordconfirm.trim() == ""){
+        passworderror.style.display = "none";
+        return false;
+    }
+    else{
+        if(password.localeCompare(passwordconfirm) == 0){
+            passworderror.style.display = "none";
+            return true;
+        }else{
+            passworderror.style.display = "block";
+            return false;
+        }
+    }
+
+}
+
 function validatesex(){
-    sexos = document.getElementsByName("sexo");
+    var sexos = document.getElementsByName("sexo");
+    var sexovalidate = document.getElementById("sexvalidate");
     let escolheusexo = false;
     for(let i=0; i<sexos.length; i++){
         if(sexos[i].checked) {
@@ -125,25 +135,83 @@ function validatesex(){
         }
     }
     if(!escolheusexo){
-        alert("Informe seu sexo");
+        sexovalidate.style.display = "block";
         return false;
     }
+    sexovalidate.style.display = "none";
     return true;
 }
 
 function validatecourse(){
-    curso = document.getElementById("curso").value;
-    return true;
+    var curso = document.getElementById("curso").value;
+    var cursovalidate = document.getElementById("coursevalidate");
+    if(curso != "null"){
+        cursovalidate.style.display = "none";
+        return true;
+    }
+    else{
+        cursovalidate.style.display = "block";
+        return false;
+    }
 }
 
+function validatename(){
+    var nome = document.getElementById("nome").value;
+    var nomevalidate = document.getElementById('nomevalidate');
+    if(nome.trim() != ""){
+        nomevalidate.style.display = "none";
+        return true;
+    }
+    else{
+        nomevalidate.style.display = "block";
+        return false;
+    }
+}
 
 function validatedata(event) {
     let valid = true;
     valid &= validatename();
     valid &= validatephone();
-    valid &= validatepassword();
+    valid &= matchpasswords();
     valid &= validatesex();
     valid &= validatecourse();
-    if(!valid) event.preventDefault();
+    if(!valid) alert("Verifique os campos e submeta o cadastro novamente!");
+    else alert("Cadastro realizado com sucesso!")
+    
+    event.preventDefault();
     return valid;
+}
+
+function cleanallfields(){
+    var nome = document.getElementById("nome");
+    var celular = document.getElementById("celular");
+    var password = document.getElementById("password");
+    var passwordconfirm = document.getElementById("passwordconfirm");
+    var sexos = document.getElementsByName("sexo");
+    var curso = document.getElementById("curso");
+
+    nome.innerHTML = "";
+    celular.innerHTML = "";
+    password.innerHTML = "";
+    passwordconfirm.innerHTML = "";
+
+    for(let i=0; i<sexos.length; i++){
+        sexos[i].checked = false;
+    }
+
+    curso.value = "null";
+
+    var nomevalidate = document.getElementById('nomevalidate');
+    var celularvalidate = document.getElementById("celularvalidate");
+    var passwordvalidate = document.getElementById("senhavalidate");
+    var passworderror = document.getElementById("passworderror");
+    var sexovalidate = document.getElementById("sexvalidate");
+    var cursovalidate = document.getElementById("coursevalidate");
+
+    nomevalidate.style.display = "none";
+    celularvalidate.style.display = "none";
+    passwordvalidate.style.display = "none";
+    passworderror.style.display = "none";
+    sexovalidate.style.display = "none";
+    cursovalidate.style.display = "none";
 }
