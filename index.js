@@ -44,9 +44,6 @@ function maskphone(event) {
             }
         }
     }
-
-
-    validatephone();
 }
 
 function validatephone() {

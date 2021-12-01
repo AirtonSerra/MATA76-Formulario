@@ -32,7 +32,7 @@
           <p id="nomevalidate" class="validate">É preciso inserir um nome</p>
 
           <label class="campo" for="celular">Celular</label>
-          <input id="celular" type="tel" placeholder="(XX)XXXXX-XXXX" onfocusout="maskphone(event)" maxlength="15" />
+          <input id="celular" type="tel" placeholder="(XX)XXXXX-XXXX" onkeypress="maskphone(event)" onfocusout="validatephone()" maxlength="15" />
           <p id="celularvalidate" class="validate"></p>
 
           <label class="campo" for="password">Crie uma senha</label>
