@@ -98,3 +98,10 @@ label.campo{
       margin-left: 0%;
     }
   } 
+
+.validate {
+	color: red; 
+	font-size: small; 
+	font-weight: bold;
+	display: none;
+}

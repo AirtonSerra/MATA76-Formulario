@@ -175,9 +175,27 @@ function validatedata(event) {
     valid &= matchpasswords();
     valid &= validatesex();
     valid &= validatecourse();
-    if(!valid) alert("Verifique os campos e submeta o cadastro novamente!");
-    else alert("Cadastro realizado com sucesso!")
+
+    localStorage["nome"] = document.getElementById("nome").value;
+    localStorage["celular"] = document.getElementById("celular").value;
+    var sexos = document.getElementsByName("sexo");
+    for(let i=0; i<sexos.length; i++){
+        if(sexos[i].checked) {
+            localStorage["sexo"] = sexos[i].value; 
+            break;
+        }
+    }
+    var cursos = document.getElementsByName("curso");
+    for(let i=0; i<cursos.length; i++){
+        if(cursos[i].checked) {
+            localStorage["curso"] = cursos[i].value; 
+            break;
+        }
+    }
     
+    if(!valid) alert("Verifique os campos e submeta o cadastro novamente!");
+    else window.location.href = "./form_response.html";
+
     event.preventDefault();
     return valid;
 }

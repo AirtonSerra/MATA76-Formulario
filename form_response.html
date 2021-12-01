@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+	<link rel="preconnect" href="https://fonts.googleapis.com" />
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+	<link 
+		href="https://fonts.googleapis.com/css2?family=Lato&display=swap"
+		rel="stylesheet"
+	/>
+	<link rel="stylesheet" href="css/styles.css" />
+	<title>Cadastro MATA-76</title>
+	<script type="text/javascript" src="form_response.js"></script>
+	</head>
+
+	<body>
+	<main>
+		<header>
+		<h1>Cadastro Concluido com Sucesso!</h1>
+		<h4>
+			Esses foram os dados do seu cadastro:
+		</h4>
+		</header>
+
+		<section class="informacoesPrincipais">		
+			<h4>Nome completo</h4>
+			<script>
+				document.write("<p>"+localStorage["nome"]+"</p>");
+			</script>
+			<h4>Celular</h4>
+			<script>
+				document.write("<p>"+localStorage["celular"]+"</p>");
+			</script>
+			<h4>Sexo</h4>
+			<script>
+				document.write("<p>"+localStorage["sexo"]+"</p>");
+			</script>
+			<h4>Curso</h4>
+			<script>
+				document.write("<p>"+localStorage["curso"]+"</p>");
+			</script>
+		</section>
+
+		<button onclick="switchToForm()">Realizar novo cadastro</button>	
+	</main>
+	<footer>
+		<p style="color: whitesmoke;">Criado pelo grupo 4 - MATA-76</p>
+	</footer>
+	</body>
+</html>
