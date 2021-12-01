@@ -25,19 +25,19 @@
         <section class="informacoesPrincipais">
           <label for="nome">Nome completo</label>
           <input id="nome" type="text" placeholder="Digite seu nome completo" onfocusout="validatename()"/>
-          <p id="nomevalidate" style="color: red; font-size: small; font-weight: bold; display: none;">É preciso inserir um nome</p>
+          <p id="nomevalidate" class="validate">É preciso inserir um nome</p>
 
           <label for="celular">Celular</label>
           <input id="celular" type="tel" placeholder="(XX)XXXXX-XXXX" onfocusout="maskphone(event)" maxlength="15" />
-          <p id="celularvalidate" style="color: red; font-size: small; font-weight: bold; display: none;"></p>
+          <p id="celularvalidate" class="validate"></p>
 
           <label for="password">Crie uma senha</label>
           <input id="password" type="password" placeholder="Digite sua senha" onfocusout="validatepassword()" maxlength="20" />
-          <p id="senhavalidate" style="color: red; font-size: small; font-weight: bold; display: none;"></p>
+          <p id="senhavalidate" class="validate"></p>
 
           <label for="passwordconfirm">Confirme sua senha</label>
           <input id="passwordconfirm" type="password" placeholder="Digite novamente sua senha" onfocusout="matchpasswords()" maxlength="20" />
-          <p id="passworderror" style="color: red; font-size: small; font-weight: bold; display: none;">As senhas não são iguais</p>
+          <p id="passworderror" class="validate">As senhas não são iguais</p>
         </section>
 
         <div style="display: grid;">
@@ -50,7 +50,7 @@
             <input id="sexoO" type="radio" name="sexo" value="outro" />
             <label for="sexoO">Outro</label>
         </section>
-        <p id="sexvalidate" style="color: red; font-size: small; font-weight: bold; display: none;">É preciso escolher um sexo</p>
+        <p id="sexvalidate" class="validate">É preciso escolher um sexo</p>
       </div>
 
       <div style="display: grid;">
@@ -63,7 +63,7 @@
             <option value="lc">Licenciatura em Computação</option>
             <option value="outro">Outro</option>
           </select>
-          <p id="coursevalidate" style="color: red; font-size: small; font-weight: bold; display: none;">É preciso escolher um curso</p>
+          <p id="coursevalidate" class="validate">É preciso escolher um curso</p>
         </section>
         </div>
 
