@@ -179,19 +179,16 @@ function validatedata(event) {
     localStorage["nome"] = document.getElementById("nome").value;
     localStorage["celular"] = document.getElementById("celular").value;
     var sexos = document.getElementsByName("sexo");
+    console.log(sexos);
     for(let i=0; i<sexos.length; i++){
         if(sexos[i].checked) {
-            localStorage["sexo"] = sexos[i].value; 
+            localStorage["sexo"] = sexos[i].labels[0].innerHTML; 
             break;
         }
     }
-    var cursos = document.getElementsByName("curso");
-    for(let i=0; i<cursos.length; i++){
-        if(cursos[i].checked) {
-            localStorage["curso"] = cursos[i].value; 
-            break;
-        }
-    }
+    var cursos = document.getElementById("curso");
+    console.log(cursos);
+    localStorage["curso"] = cursos[cursos.selectedIndex].innerHTML; 
     
     if(!valid) alert("Verifique os campos e submeta o cadastro novamente!");
     else window.location.href = "./form_response.html";

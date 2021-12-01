@@ -4,7 +4,6 @@ body {
     background: radial-gradient(circle, rgb(54 72 137) 0%, rgb(20 20 20) 100%);
 }
 
-  
 main {
   background: #f0f0f0;
   padding: 30px;
@@ -13,49 +12,49 @@ main {
   height:100%;
 }
   
-  section {
-    margin-top: 10px;
-  }
-  
-  input {
-    margin-bottom: 10px;
-  }
-  
-  section.informacoesPrincipais input,
-  section.senhas input {
-    display: block;
-    padding: 5px;
-    border: 1px solid silver;
-    font-size: 16px;
-    line-height: 20px;
-    width: 100%;
-  }
-  
-  select#curso {
-    padding: 5px 37% 5px 2px;
-    margin-top: 10px;
-    width: 100%;
-  }
-  
-  .actions {
-    display: block;
-    justify-content: space-between;
-    padding: 15px 0px;
-    margin-top: 3em;
-  }
-  
-  button:hover {
-    background-color: rgb(238, 174, 202);
-    border: 1px solid rgb(148, 187, 233);
-  }
-  
-  footer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: rgba(0, 0, 0, 0.253);
-    margin-top: 5em;
-  }
+section {
+  margin-top: 10px;
+}
+
+input {
+  margin-bottom: 10px;
+}
+
+section.informacoesPrincipais input,
+section.senhas input {
+  display: block;
+  padding: 5px;
+  border: 1px solid silver;
+  font-size: 16px;
+  line-height: 20px;
+  width: 100%;
+}
+
+select#curso {
+  padding: 5px 37% 5px 2px;
+  margin-top: 10px;
+  width: 100%;
+}
+
+.actions {
+  display: block;
+  justify-content: space-between;
+  padding: 15px 0px;
+  margin-top: 3em;
+}
+
+button:hover {
+  background-color: rgb(238, 174, 202);
+  border: 1px solid rgb(148, 187, 233);
+}
+
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.253);
+  margin-top: 5em;
+}
   
   
 i.fas{
