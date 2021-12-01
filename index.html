@@ -1,47 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link 
-        href="https://fonts.googleapis.com/css2?family=Lato&display=swap"
-        rel="stylesheet"
-    />
-    <link rel="stylesheet" href="css/styles.css" />
-    <title>Cadastro MATA-76</title>
-    <script type="text/javascript" src="index.js"></script>
-  </head>
 
-  <body>
-    <main>
-      <header>
-        <h1>Cadastro:</h1>
-        <h4>
-          Preencha os dados abaixo para que seu cadastro seja realizado com
-          sucesso!
-        </h4>
+<head>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/styles.css" />
+  <title>Cadastro MATA-76</title>
+</head>
+
+<body>
+  <main>
+    <div class="container">
+
+      <div class="row">
+        <div class="col text-center">
+          <img src="img/Brasao-UFBA.png">
+          <span id="nome-ufba">Universidade Federal da Bahia</span>
+        </div>
+      </div>
+
+      <header class="text-center">
+        <h1>Cadastro de alunos</h1>
       </header>
+
       <form id="cadastro">
+
         <section class="informacoesPrincipais">
-          <label for="nome">Nome completo</label>
+
+          <label class="campo" for="nome">Nome completo</label>
           <input id="nome" type="text" placeholder="Digite seu nome completo" onfocusout="validatename()"/>
           <p id="nomevalidate" class="validate">É preciso inserir um nome</p>
 
-          <label for="celular">Celular</label>
+          <label class="campo" for="celular">Celular</label>
           <input id="celular" type="tel" placeholder="(XX)XXXXX-XXXX" onfocusout="maskphone(event)" maxlength="15" />
           <p id="celularvalidate" class="validate"></p>
 
-          <label for="password">Crie uma senha</label>
+          <label class="campo" for="password">Crie uma senha</label>
           <input id="password" type="password" placeholder="Digite sua senha" onfocusout="validatepassword()" maxlength="20" />
           <p id="senhavalidate" class="validate"></p>
 
-          <label for="passwordconfirm">Confirme sua senha</label>
+          <label class="campo" for="passwordconfirm">Confirme sua senha</label>
           <input id="passwordconfirm" type="password" placeholder="Digite novamente sua senha" onfocusout="matchpasswords()" maxlength="20" />
           <p id="passworderror" class="validate">As senhas não são iguais</p>
+
         </section>
 
         <div style="display: grid;">
-          <label for="sexo">Sexo</label>
+          <label class="campo" for="sexo">Sexo</label>
           <section id="sexo" class="sexo" onfocusout="validatesex()">
             <input id="sexoM" type="radio" name="sexo" value="m" />
             <label for="sexoM">Masculino</label>
@@ -49,32 +54,56 @@
             <label for="sexoF">Feminino</label>
             <input id="sexoO" type="radio" name="sexo" value="outro" />
             <label for="sexoO">Outro</label>
-        </section>
-        <p id="sexvalidate" class="validate">É preciso escolher um sexo</p>
-      </div>
-
-      <div style="display: grid;">
-        <section class="curso" onfocusout="validatecourse()">
-          <label for="curso">Escolha seu curso</label>
-          <select name="curso" id="curso">
-            <option value="null"></option>
-            <option value="ci">Bacharelado Interdisciplinar</option>
-            <option value="cc">Ciência da Computação</option>
-            <option value="lc">Licenciatura em Computação</option>
-            <option value="outro">Outro</option>
-          </select>
-          <p id="coursevalidate" class="validate">É preciso escolher um curso</p>
-        </section>
+          </section>
+          <p id="sexvalidate" class="validate">É preciso escolher um sexo</p>
         </div>
 
-        <div class="actions">
-          <button type="reset" onclick="cleanallfields()">Limpar</button>
-          <button type="submit" onclick="validatedata(event)">Enviar</button>
+        <div style="display: grid;">
+          <section class="curso" onfocusout="validatecourse()">
+            <label class="campo" for="curso">Escolha seu curso</label>
+            <select name="curso" id="curso">
+              <option value="null"></option>
+              <option value="ci">Bacharelado Interdisciplinar</option>
+              <option value="cc">Ciência da Computação</option>
+              <option value="lc">Licenciatura em Computação</option>
+              <option value="outro">Outro</option>
+            </select>
+            <p id="coursevalidate" style="color: red; font-size: small; font-weight: bold; display: none;">É preciso
+              escolher um curso</p>
+          </section>
         </div>
+
+        <div class="container actions">
+          <div class="row">
+            <div class="col text-center">
+              <button type="reset" class="btn btn-secondary" onclick="cleanallfields()"><i
+                  class="fas fa-trash-alt"></i>Limpar</button>
+              <button type="submit" class="btn btn-primary" onclick="validatedata(event)"><i
+                  class="fas fa-paper-plane"></i>Enviar</button>
+            </div>
+          </div>
       </form>
-    </main>
-    <footer>
-      <p style="color: whitesmoke;">Criado pelo grupo 4 - MATA-76</p>
-    </footer>
-  </body>
+    </div>
+
+  </main>
+  <footer class="footer navbar-fixed-bottom">
+    <p style="color: whitesmoke; margin-top: 2em;" class="text-center">
+      Grupo 4 - MATA-76
+      <br/>
+      Airton Serra
+      <br/>
+      João Daniel
+      <br/>
+      Danilo Daltro
+      <br/>
+      Vitor Barbosa
+      <br/>
+      Bruno
+    </p>
+  </footer>
+
+  <script type="text/javascript" src="index.js"></script>
+  <script src="https://kit.fontawesome.com/a5d1a6c015.js" crossorigin="anonymous"></script>
+</body>
+
 </html>
